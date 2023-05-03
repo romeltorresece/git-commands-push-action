@@ -11,9 +11,15 @@ class GitCommand {
 
     //Command: git status
     status(){        
-        /*
-            Create logic here and run unit testing.
-        */
+        let wd = this.working_directory;
+        let changes = 0;
+        const file_paths = Object.keys(wd.new_changes);
+        let new_files = "";
+        for (let i = 0; i < file_paths.length; i++) {
+            changes++;
+            new_files += `\n${file_paths[i]}`;
+        }
+        return `You have ${changes} change/s.${new_files ? new_files : "\n"}`;
     }
 
     //Command: git add <filename/file directory/wildcard> 
