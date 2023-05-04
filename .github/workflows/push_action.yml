@@ -2,7 +2,7 @@ name: Github Push Action
 on:
   push:
     branches:
-      - feature/git_status
+      - feature/*
 jobs:
   build:
     name: Build git commands
