@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - feature/*
+  pull_request:
+    branches:
+      - master
+      - develop
 jobs:
   build:
     name: Build git commands

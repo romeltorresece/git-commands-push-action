@@ -40,7 +40,7 @@ describe("Testing GitCommand.add(\".\")", function() {
         let output_add = git.add(".");
         let output_status = git.status();
 
-        expect(output_add).to.equal("Succesfully added as index file/s.");
+        expect(output_add).to.equal("Successfully added as index file/s.");
         expect(output_status).to.equal("You have 0 change/s.\n");
     });
 });
