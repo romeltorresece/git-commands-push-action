@@ -26,3 +26,21 @@ describe("Testing GitCommand.status()", function(){
         expect(output).to.equal('You have 0 change/s.\n');
     });
 })
+
+describe("Testing GitCommand.add(\".\")", function() {
+
+    it('Should succeed when file path is "."', function() {
+        let wd = new WorkingDirectory();
+        wd.addFile("index.html", "views", "<html>Hello</html>");
+        wd.addFile("push_action.yml", ".github/workflows", "");
+
+        let git = new GitCommand(wd);
+        git.init();
+        
+        let output_add = git.add(".");
+        let output_status = git.status();
+
+        expect(output_add).to.equal("Succesfully added as index file/s.");
+        expect(output_status).to.equal("You have 0 change/s.\n");
+    });
+});
